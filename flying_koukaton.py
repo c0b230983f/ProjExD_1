@@ -17,6 +17,8 @@ def main():
     kk_rct.center = 300,200
     tmr = 0
     while True:
+        a = 0
+        b = 0
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
@@ -26,17 +28,20 @@ def main():
         screen.blit(bg_img,[-x+3200,0])
         screen.blit(bg_img2,[-x+4800,0])
         
-        kk_rct.move_ip(-1,0)
         
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0,-1)
+            b = -1
+            #kk_rct.move_ip(0,-1)
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0,+1)
+            b = 1
+            #kk_rct.move_ip(0,+1)
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(3,0)
+            a = 3
+            #kk_rct.move_ip(3,0)
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1,0)
+            a = -1
+        kk_rct.move_ip(a-1,b)
         
 
         screen.blit(kk_img,kk_rct) #kk_imgをkk_rctの設定に従い貼り付け
