@@ -18,7 +18,8 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        x = tmr%800
+        screen.blit(bg_img, [-x, 0])
         kk_rct = kk_img.get_rect() #高価トンrectの抽出
         kk_rct.center = 300,200
         screen.blit(kk_img,kk_rct) #kk_imgをkk_rctの設定に従い貼り付け
